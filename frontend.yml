@@ -1,0 +1,12 @@
+- name: Play book for Front end setup
+  hosts: all
+  tasks:
+    - name: Install Nginx
+      ansible.builtin.dnf:
+        name: nginx
+        status: started
+
+    - name: Copy expense config file
+      ansible.builtin.copy:
+        src: expense.conf
+        dest: /etc/nginx/default.d/expense.conf
